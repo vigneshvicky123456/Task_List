@@ -42,10 +42,10 @@ To use this app, follow these steps:
 
 The following dependencies are required to run the Task List :
 
-React (version 18.2.0 or later)
-React DOM (version 18.2.0 or later)
-React Scripts (version 5.0.1 or later)
-React-Redux (version 8.1.1 or later) 
+    React (version 18.2.0 or later)
+    React DOM (version 18.2.0 or later)
+    React Scripts (version 5.0.1 or later)
+    React-Redux (version 8.1.1 or later) 
 
 ## Contributing
 
@@ -61,4 +61,4 @@ To contribute to Task List, please follow these steps:
 
 ## Demo
 
-[Click here to visit site] ()
+[Click here to visit site](https://task-list-765433.netlify.app/)
