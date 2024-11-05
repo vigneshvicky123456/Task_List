@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button,Form, } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
-import { addTodo, updateTodo } from "../slices/tasksSlice";
+import {  useDispatch } from "react-redux";
+import { addTodo } from "../slices/tasksSlice";
 
 const AddTask = () => {
 
     const dispatch = useDispatch()
-    const {selectTodo} = useSelector((state) => state.todos);
     const [newTask, setNewTask] = useState('');
-    const [isEditting, setIsEditting] = useState(false);
-    const [id, setId] = useState(0);
-    
+   
     const addTask = () => { 
     
       // check if input is empty
@@ -27,25 +24,6 @@ const AddTask = () => {
       }
   };
 
-  const updateTask = () => {
-    dispatch(updateTodo({ id: id, task: newTask })); 
-    setIsEditting(false); 
-    window.location = "/";
-    setNewTask('')
-   };
- 
-  const cancel = () => {
-    setIsEditting(false)
-    setNewTask('')
-  };
- 
-    useEffect(() => {
-     if (Object.keys(selectTodo).length !== 0){
-      setNewTask(selectTodo.task)
-      setId(selectTodo.id)
-      setIsEditting(true)
-      }
-    }, [selectTodo]);
 
   return (
     <div className=" text-align-center container">
@@ -59,23 +37,6 @@ const AddTask = () => {
                    onChange={(e) => setNewTask(e.target.value)}
                 />
               </Form.Group>
-              {isEditting ? (
-                 <section className="text-end col-auto">
-                   <Button 
-                      variant="primary" 
-                      className="mx-3" 
-                      onClick={ cancel } 
-                   >
-                     Cancel
-                   </Button>
-                   <Button 
-                      variant="primary" 
-                      onClick={(e) =>updateTask(e)} 
-                   >
-                     update Task
-                   </Button>
-                 </section>
-              ) : (
                 <section  className="text-end mx-2 col-auto">
                    <Button 
                       variant="primary" 
@@ -84,7 +45,6 @@ const AddTask = () => {
                      Add Task
                   </Button>
                 </section>
-              )}
            </Form>
         </section>
     </div>

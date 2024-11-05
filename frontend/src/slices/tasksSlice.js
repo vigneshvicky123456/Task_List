@@ -33,9 +33,8 @@ export const deleteTodo = createAsyncThunk('todos/deleteTodo', async (id) => {
   }); 
 
 const initialState = {
-    todos: [],
-    status: null,
-    selectTodo: {}
+   // selectTodo: {},
+   todos: []
 }
 
 const tasksSlice = createSlice({
@@ -50,10 +49,9 @@ const tasksSlice = createSlice({
           .addCase(addTodo.fulfilled, (state, action) => {
             state.todos.push(action.payload);
           })
-          .addCase(getTodo.fulfilled, (state, action) => {
-            state.selectTodo =action.payload;
-            console.log('slice gettodo:',state.selectTodo);
-          })
+          // .addCase(getTodo.fulfilled, (state, action) => {
+          //   state.selectTodo =action.payload;
+          // })
           .addCase(updateTodo.fulfilled, (state, action) => {
             const index = state.todos.findIndex(todo => todo.id === action.payload.id);
             state.todos[index] = action.payload;
@@ -66,3 +64,4 @@ const tasksSlice = createSlice({
 });
 
 export default tasksSlice.reducer;
+

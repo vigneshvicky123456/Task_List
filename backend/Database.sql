@@ -8,10 +8,4 @@ CREATE TABLE todos(
 
 SELECT * FROM todos;
 
-INSERT INTO todos (description) VALUES($1) RETURNING *, [description]
-INSERT INTO todos (description) VALUES($1)
-
-SELECT * FROM todos;
-
-SELECT * FROM todos WHERE id = $1, [id]
 
